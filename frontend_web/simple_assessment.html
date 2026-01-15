@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="PCOS Care Logo" class="logo">
+                <h2>PCOS Care</h2>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="simple_assessment.html" class="nav-item active">Simple Risk Assessment</a>
+                <a href="enhanced_assessment.html" class="nav-item">Enhanced Risk Assessment</a>
+                <a href="results.html" class="nav-item">Results</a>
+                <a href="contact.html" class="nav-item">Contact & Help</a>
+            </nav>
+        </aside>
+        
+        <main class="content">
+            <section id="simple-assessment" class="page-section">
+                <h2>Simple Risk Assessment</h2>
+                <p>Provide basic health data for a quick analysis.</p>
+                <div id="simple-alert" class="alert-box" ></div>
+
+                <!-- Simple Risk Assessment -->
+                <section id="simple-assessment" class="page-section">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <img src="images/logo.png" width="80" alt="Logo">
+                        <h1>Simple Risk Assessment</h1>
+                    </div>
+
+                    <form id="simple-form">
+                        <div class="form-row">
+                            <input type="number" id="simple-age" placeholder="Age (years)" value="26" required>
+                            <input type="number" step="0.1" id="simple-weight" placeholder="Weight (Kg)" value="60"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="simple-height" placeholder="Height (cm)" value="160" required>
+                            <select id="simple-blood-group" required>
+                                <option value="" disabled>Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+" selected>O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="simple-pulse" placeholder="Pulse Rate (bpm)" value="72" required>
+                            <input type="number" id="simple-rr" placeholder="RR (breaths/min)" value="18" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" step="0.1" id="simple-hb" placeholder="Hb (g/dl)" value="12.5"
+                                required>
+                            <input type="number" id="simple-cycle-length" placeholder="Cycle Length (days)" value="5"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <select id="simple-cycle" required>
+                                <option value="" disabled>Cycle Regularity</option>
+                                <option value="Regular" selected>Regular</option>
+                                <option value="Irregular">Irregular</option>
+                            </select>
+                            <select id="simple-pregnant" required>
+                                <option value="" disabled>Pregnant?</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No" selected>No</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="simple-abortions" placeholder="No. of Abortions" value="0"
+                                required>
+                            <input type="number" step="0.1" id="simple-hip" placeholder="Hip (inch)" value="38"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" step="0.1" id="simple-waist" placeholder="Waist (inch)" value="32"
+                                required>
+                        </div>
+
+                        <h3>Symptoms</h3>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="simple-weight-gain"> Excessive Weight Gain</label>
+                            <label><input type="checkbox" id="simple-hair-growth"> Excessive Hair Growth</label>
+                            <label><input type="checkbox" id="simple-skin-darkening"> Skin Darkening</label>
+                            <label><input type="checkbox" id="simple-hair-loss"> Hair Loss</label>
+                            <label><input type="checkbox" id="simple-pimples"> Pimples/Acne</label>
+                            <label><input type="checkbox" id="simple-fast-food"> Frequent Fast Food</label>
+                            <label><input type="checkbox" id="simple-exercise"> Regular Exercise</label>
+                        </div>
+
+                        <button type="button" class="submit-btn" onclick="submitSimpleForm()">Analyze Risk</button>
+                    </form>
+
+                    <div id="simple-alert" class="alert-box" ></div>
+                    <div id="simple-result" class="result-box" ></div>
+                </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

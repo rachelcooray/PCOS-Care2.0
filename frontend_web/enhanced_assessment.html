@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="PCOS Care Logo" class="logo">
+                <h2>PCOS Care</h2>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="simple_assessment.html" class="nav-item">Simple Risk Assessment</a>
+                <a href="enhanced_assessment.html" class="nav-item active">Enhanced Risk Assessment</a>
+                <a href="results.html" class="nav-item">Results</a>
+                <a href="contact.html" class="nav-item">Contact & Help</a>
+            </nav>
+        </aside>
+        
+        <main class="content">
+            <section id="enhanced-assessment" class="page-section">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <img src="images/logo.png" width="80" alt="Logo">
+                        <h1>Enhanced Risk Assessment</h1>
+                    </div>
+
+                    <form id="enhanced-form">
+                        <h3>Basic Measurements</h3>
+                        <div class="form-row">
+                            <input type="number" id="enhanced-age" placeholder="Age (years)" value="28" required>
+                            <input type="number" step="0.1" id="enhanced-weight" placeholder="Weight (Kg)" value="70"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="enhanced-height" placeholder="Height (cm)" value="162" required>
+                            <select id="enhanced-blood-group" required>
+                                <option value="" disabled>Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="B+" selected>B+</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="enhanced-pulse" placeholder="Pulse Rate (bpm)" value="74" required>
+                            <input type="number" id="enhanced-rr" placeholder="RR (breaths/min)" value="20" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" step="0.1" id="enhanced-hb" placeholder="Hb (g/dl)" value="11.8"
+                                required>
+                            <input type="number" id="enhanced-cycle-length" placeholder="Cycle Length (days)" value="6"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <select id="enhanced-cycle" required>
+                                <option value="" disabled>Cycle Regularity</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Irregular" selected>Irregular</option>
+                            </select>
+                            <select id="enhanced-pregnant" required>
+                                <option value="" disabled>Pregnant?</option>
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="enhanced-abortions" placeholder="No. of Abortions" value="0"
+                                required>
+                            <input type="number" step="0.1" id="enhanced-hip" placeholder="Hip (inch)" value="40"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" step="0.1" id="enhanced-waist" placeholder="Waist (inch)" value="34"
+                                required>
+                            <input type="number" id="enhanced-bp-systolic" placeholder="BP Systolic (mmHg)" value="120"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="enhanced-bp-diastolic" placeholder="BP Diastolic (mmHg)" value="80"
+                                required>
+                        </div>
+
+                        <h3>Hormonal Profile</h3>
+                        <div class="form-row">
+                            <input type="number" step="0.1" id="enhanced-fsh" placeholder="FSH (mIU/mL)" value="5.5"
+                                required>
+                            <input type="number" step="0.1" id="enhanced-lh" placeholder="LH (mIU/mL)" value="6.2"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" step="0.1" id="enhanced-tsh" placeholder="TSH (mIU/L)" value="2.1"
+                                required>
+                            <input type="number" step="0.1" id="enhanced-amh" placeholder="AMH (ng/mL)" value="4.5"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" step="0.1" id="enhanced-prl" placeholder="PRL (ng/mL)" value="18"
+                                required>
+                            <input type="number" step="0.1" id="enhanced-vit-d3" placeholder="Vit D3 (ng/mL)" value="28"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" step="0.1" id="enhanced-prg" placeholder="PRG (ng/mL)" value="0.4"
+                                required>
+                            <input type="number" step="0.1" id="enhanced-rbs" placeholder="RBS (mg/dl)" value="95"
+                                required>
+                        </div>
+
+                        <h3>Ultrasound & Other</h3>
+                        <div class="form-row">
+                            <input type="number" id="enhanced-follicle-l" placeholder="Follicle No. (L)" value="8"
+                                required>
+                            <input type="number" id="enhanced-follicle-r" placeholder="Follicle No. (R)" value="9"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" step="0.1" id="enhanced-size-l" placeholder="Avg F Size L (mm)"
+                                value="14.0" required>
+                            <input type="number" step="0.1" id="enhanced-size-r" placeholder="Avg F Size R (mm)"
+                                value="13.5" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" step="0.1" id="enhanced-endometrium" placeholder="Endometrium (mm)"
+                                value="8.0" required>
+                        </div>
+
+
+                        <h3>Symptoms</h3>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="enhanced-weight-gain" checked> Excessive Weight
+                                Gain</label>
+                            <label><input type="checkbox" id="enhanced-hair-growth"> Excessive Hair Growth</label>
+                            <label><input type="checkbox" id="enhanced-skin-darkening"> Skin Darkening</label>
+                            <label><input type="checkbox" id="enhanced-hair-loss" checked> Hair Loss</label>
+                            <label><input type="checkbox" id="enhanced-pimples"> Pimples/Acne</label>
+                            <label><input type="checkbox" id="enhanced-fast-food" checked> Frequent Fast Food</label>
+                        </div>
+
+                        <button type="button" class="submit-btn" onclick="submitEnhancedForm()">Analyze Risk</button>
+                    </form>
+                    <div id="enhanced-alert" class="alert-box" ></div>
+                </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

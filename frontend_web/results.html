@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="PCOS Care Logo" class="logo">
+                <h2>PCOS Care</h2>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="simple_assessment.html" class="nav-item">Simple Risk Assessment</a>
+                <a href="enhanced_assessment.html" class="nav-item">Enhanced Risk Assessment</a>
+                <a href="results.html" class="nav-item active">Results</a>
+                <a href="contact.html" class="nav-item">Contact & Help</a>
+            </nav>
+        </aside>
+        
+        <main class="content">
+            <section id="results" class="page-section">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <img src="images/logo.png" width="80" alt="Logo">
+                        <h1>Your Assessment Results</h1>
+                    </div>
+
+                    <!-- Print-only header -->
+                    <div class="print-header" >
+                        <h1>PCOS Risk Assessment Report</h1>
+                    </div>
+
+                    <div id="result-header" class="result-header">
+                        <!-- Dynamic Prediction Text -->
+                    </div>
+
+                    <div id="result-alert" class="alert-box-large">
+                        <!-- Dynamic Alert Message -->
+                    </div>
+
+                    <hr class="divider">
+
+                    <h3>Key Health Ratios</h3>
+                    <div class="charts-container">
+                        <div class="chart-box">
+                            <h4>BMI</h4>
+                            <div class="gauge-container" id="gauge-bmi">
+                                <div class="gauge-fill"></div> <!-- Kept for Structure, logic handled by CSS var -->
+                                <div class="gauge-value">--</div>
+                            </div>
+                            <p id="msg-bmi" class="chart-msg"></p>
+                        </div>
+
+                        <div class="chart-box">
+                            <h4>Waist:Hip Ratio</h4>
+                            <div class="gauge-container" id="gauge-whr">
+                                <div class="gauge-fill"></div>
+                                <div class="gauge-value">--</div>
+                            </div>
+                            <p id="msg-whr" class="chart-msg"></p>
+                        </div>
+
+                        <div class="chart-box" id="chart-box-fsh-lh" >
+                            <h4>FSH/LH Ratio</h4>
+                            <div class="gauge-container" id="gauge-fsh-lh">
+                                <div class="gauge-fill"></div>
+                                <div class="gauge-value">--</div>
+                            </div>
+                            <p id="msg-fsh-lh" class="chart-msg"></p>
+                        </div>
+                    </div>
+
+                    <div id="cycle-section" style="display:none; margin-top: 3rem;">
+                        <h3>Cycle Irregularities</h3>
+                        <p class="section-desc">Irregular cycles are common in PCOS. Here is a comparison of your
+                            hormone
+                            levels:</p>
+                        <div class="bar-chart-container">
+                            <div class="bar-row">
+                                <span>FSH</span>
+                                <div class="bar-bg">
+                                    <div id="bar-fsh" class="bar-fill"></div>
+                                </div>
+                                <span id="val-fsh"></span>
+                            </div>
+                            <div class="bar-row">
+                                <span>LH</span>
+                                <div class="bar-bg">
+                                    <div id="bar-lh" class="bar-fill"></div>
+                                </div>
+                                <span id="val-lh"></span>
+                            </div>
+                        </div>
+                        <div id="msg-cycle" class="alert-box-small" style="margin-top: 1rem;"></div>
+                    </div>
+
+                    <div id="lifestyle-section" style="display:none; margin-top: 3rem;">
+                        <h3>Lifestyle Factors</h3>
+                        <div class="alert-box-small"
+                            style="background-color: #5A4CA4; color: white; margin-bottom: 1rem;">
+                            Lifestyle factors can significantly impact PCOS risk.
+                        </div>
+                        <div class="lifestyle-tips">
+                            <ul id="lifestyle-list">
+                                <!-- Injected via JS -->
+                            </ul>
+                        </div>
+                        <div class="info-box-purple">
+                            <ul>
+                                <li><strong>Weight Gain:</strong> Excess weight can worsen insulin resistance, a key
+                                    PCOS
+                                    factor.</li>
+                                <li><strong>Fast Food Consumption:</strong> Processed foods may contribute to hormone
+                                    imbalances.</li>
+                                <li><strong>Lack of Exercise:</strong> Regular physical activity can help regulate
+                                    hormones.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <h3>Next Steps</h3>
+                    <div id="next-steps-alert" class="alert-box-large"></div>
+
+                    <!-- Hidden Table for PDF Report Generation -->
+                    <div id="user-data-report" >
+                        <h3>Your Data:</h3>
+                        <table class="report-table" id="report-table-body">
+                            <!-- Filled by JS -->
+                        </table>
+                    </div>
+
+                    <div class="download-section" style="text-align: center; margin-top: 3rem;">
+                        <button class="cta-button" onclick="window.print()">Download Report as PDF</button>
+                        <p class="small-text" style="color: #888; margin-top: 0.5rem; font-size: 0.9rem;">*Use your
+                            browser's "Save as PDF" feature.</p>
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <div class="disclaimer-box" style="margin-top: 3rem;">
+                        <h3>Disclaimer</h3>
+                        <p>This tool is for informational purposes only and does not provide a medical diagnosis.</p>
+                        <ul>
+                            <li>Predictions are derived from a specific patient dataset. <a
+                                    href="https://www.kaggle.com/datasets/prasoonkottarathil/polycystic-ovary-syndrome-pcos"
+                                    target="_blank">Access the dataset here</a></li>
+                            <li>The assessment is not a substitute for a professional medical evaluation.</li>
+                            <li>Always consult a doctor.</li>
+                        </ul>
+                    </div>
+
+                </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

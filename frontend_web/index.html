@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Care - AI Prediction</title>
+    <!-- Premium Fonts: Outfit (Modern, Clean, Friendly) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js for Interactive Viz -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Analyzing Health Data...</p>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="PCOS Care Logo" class="logo">
+                <h2>PCOS Care</h2>
+            </div>
+
+            <!-- Mobile Close Button -->
+            <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+
+            <ul class="nav-links">
+                <li class="nav-item active" onclick="navigateTo('home')">Home</li>
+                <li class="nav-item" onclick="navigateTo('info')">PCOS Information</li>
+                <li class="nav-item" onclick="navigateTo('dashboard')">Insights From Data</li>
+                <li class="nav-item" onclick="navigateTo('simple-assessment')">Simple Risk Assessment</li>
+                <li class="nav-item" onclick="navigateTo('enhanced-assessment')">Enhanced Risk Assessment</li>
+                <li class="nav-item" onclick="navigateTo('results')">Your Results</li>
+                <li class="nav-item" onclick="navigateTo('contact')">Help & Contact</li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-nav-toggle" onclick="toggleMobileNav()">
+                <span>&#9776;</span>
+            </button>
+
+            <!-- Home Section -->
+            <section id="home" class="page-section active">
+                <div class="hero-container">
+                    <h1>PCOS Care</h1>
+                    <h2>Empowering Women’s Health with Technology</h2>
+
+                    <div class="intro-box">
+                        <h3>Welcome to PCOS Care</h3>
+                        <p>Our AI-driven <strong>PCOS Risk Assessment tool</strong> helps women understand their health
+                            better with data-driven insights. This tool <strong>does not provide a medical
+                                diagnosis</strong>, but it serves as an informative resource.</p>
+                        <p>Early detection and awareness are key to managing PCOS effectively.</p>
+                        <p>Use this platform to assess your risk, gain knowledge, and take informed actions.</p>
+                        <p><strong>Always consult a healthcare professional for medical advice.</strong></p>
+                    </div>
+
+                    <div class="hero-image-row">
+                        <div class="col-spacer"></div>
+                        <div class="col-main">
+                            <img src="images/hero.png" alt="Take Control of your health" class="hero-img">
+                        </div>
+                        <div class="col-spacer"></div>
+                    </div>
+
+                    <h3>Our features to help you start your journey towards better health</h3>
+
+                    <div class="features-grid">
+                        <div class="feature-card" onclick="navigateTo('info')">
+                            <img src="images/info.png" alt="Info">
+                            <h4>PCOS Information</h4>
+                            <p>Understand what PCOS is, its symptoms, causes, and impact on women's health. Learn about
+                                common treatment options and lifestyle changes.</p>
+                        </div>
+                        <div class="feature-card" onclick="navigateTo('simple-assessment')">
+                            <img src="images/assessment.png" alt="Simple Assessment">
+                            <h4>Simple Risk Assessment</h4>
+                            <p>Take a quick questionnaire based on key PCOS symptoms like irregular periods and weight
+                                changes. Get an instant indication of risk.</p>
+                        </div>
+                        <div class="feature-card" onclick="navigateTo('enhanced-assessment')">
+                            <img src="images/enhanced.png" alt="Enhanced">
+                            <h4>Enhanced Risk Assessment</h4>
+                            <p>For a more accurate evaluation, enter detailed health data including hormonal levels,
+                                ultrasound results, and medical history.</p>
+                        </div>
+                        <div class="feature-card" onclick="navigateTo('results')">
+                            <img src="images/results.png" alt="Results">
+                            <h4>Results Visualization</h4>
+                            <p>Receive a clear and easy-to-understand visualization of your assessment results. Graphs
+                                and insights help interpret your risk.</p>
+                        </div>
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <div class="disclaimer-box">
+                        <h3>Disclaimer</h3>
+                        <p>This tool is for informational purposes only and does not provide a medical diagnosis.</p>
+                        <ul>
+                            <li>Predictions are derived from a specific patient dataset.</li>
+                            <li>The assessment is not a substitute for a professional medical evaluation.</li>
+                            <li>Results should be interpreted with caution.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Info Section -->
+            <section id="info" class="page-section">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="images/logo.png" width="80" alt="Logo">
+                    <h1>About PCOS</h1>
+                </div>
+
+                <!-- What is PCOS -->
+                <div class="info-box-purple">
+                    <h2>What is PCOS?</h2>
+                    <p>Polycystic Ovary Syndrome (PCOS) is a <strong>hormonal disorder</strong> that affects women of
+                        reproductive age. It can lead to <strong>irregular periods, excessive hair growth, acne, weight
+                            gain, and fertility issues</strong>. PCOS is also linked to insulin resistance, increasing
+                        the risk of diabetes, heart disease, and other metabolic disorders.</p>
+                </div>
+
+                <!-- Common Symptoms -->
+                <div class="info-card">
+                    <h2 style="color: var(--primary-color);">Common Symptoms</h2>
+                    <ul>
+                        <li><strong>Irregular periods or no periods at all</strong></li>
+                        <li><strong>Difficulty getting pregnant</strong> due to irregular ovulation</li>
+                        <li><strong>Excessive hair growth (hirsutism)</strong> - usually on face, chest, back</li>
+                        <li><strong>Weight gain</strong></li>
+                        <li><strong>Thinning hair and hair loss</strong> from the head</li>
+                        <li><strong>Oily skin or acne</strong></li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h2>Why Early Detection Matters</h2>
+                    <p>Early detection and lifestyle changes can <strong>help manage symptoms and prevent long-term
+                            complications</strong>.</p>
+                    <p><strong>Without treatment, PCOS can increase the risk of:</strong></p>
+                    <ul>
+                        <li><strong>Type 2 Diabetes:</strong> Due to insulin resistance.</li>
+                        <li><strong>Cardiovascular Disease:</strong> Increased risk of high cholesterol and
+                            hypertension.</li>
+                        <li><strong>Infertility & Pregnancy Complications:</strong> Affecting ovulation and hormone
+                            balance.</li>
+                        <li><strong>Mental Health Challenges:</strong> Anxiety and depression are common among those
+                            with PCOS.</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h2>How PCOS Affects Health</h2>
+                    <p>PCOS affects multiple systems in the body, leading to:</p>
+                    <ul>
+                        <li><strong>Hormonal Imbalances:</strong> Excess androgen levels leading to acne and hair
+                            growth.</li>
+                        <li><strong>Metabolic Issues:</strong> Increased insulin resistance, causing weight gain and
+                            high blood sugar.</li>
+                        <li><strong>Fertility Challenges:</strong> Irregular ovulation affecting pregnancy.</li>
+                        <li><strong>Increased Risk of Chronic Diseases:</strong> Heart disease, diabetes, and
+                            depression.</li>
+                    </ul>
+                    <p><small>Based on information from: WHO</small></p>
+                </div>
+
+                <div class="info-card">
+                    <h2>PCOS Management Tips</h2>
+                    <p>Managing PCOS involves lifestyle modifications, medical treatments, and self-care. Here are some
+                        key tips:</p>
+                    <ul>
+                        <li><strong>Regular Exercise:</strong> Aim for at least 150 minutes of moderate activity per
+                            week.</li>
+                        <li><strong>Balanced Nutrition:</strong> Focus on whole grains, lean proteins, and healthy fats.
+                        </li>
+                        <li><strong>Stress Management:</strong> Practice yoga, meditation, or deep breathing.</li>
+                        <li><strong>Quality Sleep:</strong> Ensure 7-9 hours of sleep per night.</li>
+                        <li><strong>Medical Support:</strong> Consult a doctor for medications and hormone management if
+                            needed.</li>
+                    </ul>
+                    <p><small>Based on information from: British Dietetic Association (BDA)</small></p>
+                </div>
+
+                <div class="info-card">
+                    <h2>Dietary Recommendations for PCOS</h2>
+                    <ul>
+                        <li><strong>Foods to Include:</strong></li>
+                        <ul>
+                            <li><strong>Whole grains:</strong> Quinoa, brown rice, etc.</li>
+                            <li><strong>Healthy fats:</strong> Avocado, olive oil, nuts.</li>
+                            <li><strong>Lean proteins:</strong> Chicken, tofu, fish, legumes.</li>
+                            <li><strong>Fiber-rich vegetables:</strong> Broccoli, spinach, non-starchy veg.</li>
+                        </ul>
+                        <br>
+                        <li><strong>Foods to Avoid:</strong></li>
+                        <ul>
+                            <li>Processed foods and sugary snacks.</li>
+                            <li>Excessive dairy and refined carbohydrates.</li>
+                            <li>Fried and fast foods.</li>
+                        </ul>
+                        <br>
+                        <li><strong>Hydration:</strong> Drink plenty of water.</li>
+                        <li><strong>Meal Timing:</strong> Balanced meals with controlled portions.</li>
+                    </ul>
+                    <p><small>Based on information from: Johns Hopkins Medicine</small></p>
+                </div>
+
+                <hr class="divider">
+
+                <div class="info-box-purple">
+                    <h3>For More Information</h3>
+                    <ul>
+                        <li><a href='https://www.who.int/news-room/fact-sheets/detail/polycystic-ovary-syndrome'
+                                target='_blank'>World Health Organization - PCOS Guidelines</a></li>
+                        <li><a href='https://www.nhs.uk/conditions/polycystic-ovary-syndrome-pcos/' target='_blank'>NHS
+                                - PCOS Overview</a></li>
+                        <li><a href='https://www.bda.uk.com/resource/polycystic-ovary-syndrome-pcos-diet.html'
+                                target='_blank'>British Dietetic Association (BDA)</a></li>
+                        <li><a href='https://www.hopkinsmedicine.org/health/wellness-and-prevention/pcos-diet'
+                                target='_blank'>Johns Hopkins Medicine</a></li>
+                    </ul>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="disclaimer-box">
+                    <h3>Disclaimer</h3>
+                    <p>This tool is for informational purposes only and does not provide a medical diagnosis.</p>
+                    <ul>
+                        <li>Predictions are derived from a specific patient dataset.</li>
+                        <li>The assessment is not a substitute for a professional medical evaluation.</li>
+                        <li>Results should be interpreted with caution.</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="page-section">
+                <!-- Header -->
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="images/logo.png" width="80" alt="Logo">
+                    <h1>Insights Dashboard</h1>
+                </div>
+
+                <!-- Intro Box -->
+                <div class="info-box-purple">
+                    <h3>Welcome to the Insights Dashboard</h3>
+                    <p>In this section, you will be taken through the impact of Polycystic Ovary Syndrome (PCOS), how it
+                        affects millions of people, and the ways you can manage it effectively. You will have a deeper
+                        understanding of how you can shape your life, along with practical insights on symptoms and the
+                        role of exercise.</p>
+                    <p><em>The statistics and insights presented here are based on comprehensive data analysis, to
+                            ensure that the information provided is insightful and also evidence-based.</em></p>
+                </div>
+
+                <!-- Insight 1 -->
+                <div class="chart-card dashboard-item">
+                    <h2>Insight 1: The Growing Challenge - PCOS Prevalence</h2>
+                    <p>PCOS affects millions of people around the world, but many don’t even know they have it. This is
+                        because PCOS is often not diagnosed, and many people overlook the symptoms. Understanding how
+                        common PCOS is is the first step toward managing it better. This section highlights an alarming
+                        number of people with undiagnosed PCOS, which is a major issue.</p>
+                    <div class="chart-img-container">
+                        <img src="images/undiagnosed_pcos_distribution.png" alt="Undiagnosed PCOS Cases Distribution">
+                    </div>
+                    <p class="chart-caption">Undiagnosed PCOS Cases Distribution</p>
+                    <div class="chart-explanation">
+                        <p>This chart shows the percentage of people who have PCOS but remain undiagnosed as 70%,
+                            highlighting the need for better awareness and screening. This insight was gathered from the
+                            research <a href='https://doi.org/10.1109/ICABME53305.2021.9604905'
+                                target='_blank'>Automated Detection of Polycystic Ovary Syndrome Using Machine Learning
+                                Techniques</a>.</p>
+                    </div>
+                </div>
+
+                <!-- Insight 2 -->
+                <div class="chart-card dashboard-item">
+                    <h2 style="color: #9C89FB;">Insight 2: The Impact of PCOS - Prevalence Breakdown</h2>
+                    <p>PCOS is a common condition that affects many individuals worldwide, but many people are still
+                        undiagnosed. Its symptoms can often be easy to overlook, making it challenging for people to
+                        seek the help they need. In this section, we highlight how widespread PCOS is in the population
+                        and why it's so important to raise awareness. Understanding how common it is helps spread the
+                        word about PCOS and encourages early diagnosis and treatment, leading to better care and
+                        management.</p>
+                    <div class="chart-img-container">
+                        <img src="images/pcos_distribution_donut_chart.png" alt="PCOS Prevalence Donut Chart">
+                    </div>
+                    <p class="chart-caption">PCOS Prevalence Donut Chart</p>
+                    <div class="chart-explanation">
+                        <p>This donut chart shows the percentage of people in the survey who have PCOS compared to those
+                            who don't. About 33% of the people in the survey were found to have PCOS. This highlights
+                            how important it is to be aware of the condition and get checked early.</p>
+                    </div>
+                </div>
+
+                <!-- Insight 3 -->
+                <div class="chart-card dashboard-item">
+                    <h2 style="color: #9C89FB;">Insight 3: The Faces of PCOS - Common Symptoms Breakdown</h2>
+                    <p>PCOS can cause a variety of symptoms that affect a person’s daily life. Some of the most common
+                        symptoms include pimples, weight gain, skin darkening, hair loss, and extra hair growth. It’s
+                        important to recognize these signs, as they can help people seek the right treatment. Lifestyle
+                        changes can help manage these symptoms and improve overall well-being.</p>
+                    <div class="chart-img-container">
+                        <img src="images/pcos_symptoms_percentage.png" alt="Common PCOS Symptoms Breakdown">
+                    </div>
+                    <p class="chart-caption">Common PCOS Symptoms Breakdown</p>
+                    <div class="chart-explanation">
+                        <p>This chart shows the most commonly reported symptoms in people diagnosed with PCOS. Each bar
+                            represents how strongly each symptom is linked to PCOS. The symptoms are arranged from top
+                            to bottom, with those at the top being the most impactful and worth paying closer attention
+                            to.</p>
+                    </div>
+                </div>
+
+                <!-- Insight 4 -->
+                <div class="chart-card dashboard-item">
+                    <h2 style="color: #9C89FB;">Insight 4: The Impact of Diet - Fast Food and PCOS Symptoms</h2>
+                    <p>Diet plays a key role in managing PCOS. In this we can see how fast food may contribute to the
+                        worsening of PCOS symptoms.</p>
+                    <div class="chart-img-container">
+                        <img src="images/fast_food_vs_pcos_symptoms.png" alt="Fast Food Consumption & PCOS">
+                    </div>
+                    <p class="chart-caption">Fast Food Consumption & PCOS</p>
+                    <div class="chart-explanation">
+                        <p>Our findings show a clear association between fast food consumption and PCOS diagnosis,
+                            emphasizing the importance of a balanced diet in managing the condition and suggesting that
+                            reducing fast food intake could help lower the risk of PCOS.</p>
+                    </div>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="disclaimer-box">
+                    <h3>Disclaimer</h3>
+                    <p>This tool is for informational purposes only and does not provide a medical diagnosis.</p>
+                    <ul>
+                        <li>Predictions are derived from a specific patient dataset. <a
+                                href="https://www.kaggle.com/datasets/prasoonkottarathil/polycystic-ovary-syndrome-pcos"
+                                target="_blank">Access the dataset here</a></li>
+                        <li>The assessment is not a substitute for a professional medical evaluation.</li>
+                        <li>Results should be interpreted with caution.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Simple Assessment Form -->
+            <section id="simple-assessment" class="page-section">
+                <h2>Simple Risk Assessment</h2>
+                <p>Provide basic health data for a quick analysis.</p>
+                <div id="simple-alert" class="alert-box" style="display:none;"></div>
+
+                <form id="simple-form">
+                    <div class="form-group">
+                        <label>Age (years)</label>
+                        <input type="number" id="simple-age" placeholder="25" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Weight (kg)</label>
+                            <input type="number" step="0.1" id="simple-weight" placeholder="60.5" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>Height (cm)</label>
+                            <input type="number" step="0.1" id="simple-height" placeholder="160.5" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Waist (inch)</label>
+                            <input type="number" step="0.1" id="simple-waist" placeholder="32" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>Hip (inch)</label>
+                            <input type="number" step="0.1" id="simple-hip" placeholder="36" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pulse Rate (bpm)</label>
+                        <input type="number" id="simple-pulse" placeholder="72" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Respiratory Rate (breaths/min)</label>
+                        <input type="number" id="simple-rr" placeholder="18" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Systolic BP (mmHg)</label>
+                            <input type="number" id="simple-bp-sys" placeholder="120" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>Diastolic BP (mmHg)</label>
+                            <input type="number" id="simple-bp-dia" placeholder="80" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cycle Regularity</label>
+                        <select id="simple-cycle">
+                            <option value="Regular">Regular</option>
+                            <option value="Irregular">Irregular</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Cycle Length (days)</label>
+                        <input type="number" id="simple-cycle-length" placeholder="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label>No. of Abortions</label>
+                        <input type="number" id="simple-abortions" placeholder="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pregnant?</label>
+                        <select id="simple-pregnant">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Blood Group</label>
+                        <select id="simple-blood-group">
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </div>
+
+
+                    <h3>Symptoms</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="simple-weight-gain"> Excessive Weight Gain</label>
+                        <label><input type="checkbox" id="simple-hair-growth"> Excessive Hair Growth</label>
+                        <label><input type="checkbox" id="simple-skin-darkening"> Skin Darkening</label>
+                        <label><input type="checkbox" id="simple-hair-loss"> Hair Loss</label>
+                        <label><input type="checkbox" id="simple-pimples"> Pimples/Acne</label>
+                        <label><input type="checkbox" id="simple-fast-food"> Frequent Fast Food</label>
+                        <label><input type="checkbox" id="simple-exercise"> Regular Exercise</label>
+                    </div>
+
+                    <button type="button" class="submit-btn" onclick="submitSimpleForm()">Analyze Risk</button>
+                </form>
+
+                <div id="simple-result" class="result-box" style="display:none;"></div>
+            </section>
+
+            <!-- Enhanced Assessment Form -->
+            <section id="enhanced-assessment" class="page-section">
+                <h2>Enhanced Risk Assessment</h2>
+                <p>Includes hormonal and ultrasound data for in-depth analysis.</p>
+                <div id="enhanced-alert" class="alert-box" style="display:none;"></div>
+
+                <form id="enhanced-form">
+                    <div class="form-group">
+                        <label>Age (years)</label>
+                        <input type="number" id="enhanced-age" placeholder="25" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Weight (kg)</label>
+                            <input type="number" step="0.1" id="enhanced-weight" placeholder="60.5" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>Height (cm)</label>
+                            <input type="number" step="0.1" id="enhanced-height" placeholder="160.5" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Waist (inch)</label>
+                            <input type="number" step="0.1" id="enhanced-waist" placeholder="32" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>Hip (inch)</label>
+                            <input type="number" step="0.1" id="enhanced-hip" placeholder="36" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pulse Rate (bpm)</label>
+                        <input type="number" id="enhanced-pulse" placeholder="72" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Hemoglobin (g/dl)</label>
+                        <input type="number" step="0.1" id="enhanced-hb" placeholder="12.0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cycle Regularity</label>
+                        <select id="enhanced-cycle">
+                            <option value="Regular">Regular</option>
+                            <option value="Irregular">Irregular</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Cycle Length (days)</label>
+                        <input type="number" id="enhanced-cycle-length" placeholder="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label>No. of Abortions</label>
+                        <input type="number" id="enhanced-abortions" placeholder="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pregnant?</label>
+                        <select id="enhanced-pregnant">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+
+                    <h3>Hormonal Data</h3>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>FSH (mIU/mL)</label>
+                            <input type="number" step="0.1" id="enhanced-fsh" placeholder="5.5" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>LH (mIU/mL)</label>
+                            <input type="number" step="0.1" id="enhanced-lh" placeholder="6.2" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>AMH (ng/mL)</label>
+                            <input type="number" step="0.1" id="enhanced-amh" placeholder="3.1" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>TSH (mIU/L)</label>
+                            <input type="number" step="0.1" id="enhanced-tsh" placeholder="2.0" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Vit D3 (ng/mL)</label>
+                            <input type="number" step="0.1" id="enhanced-vit-d3" placeholder="30" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>RBS (mg/dl)</label>
+                            <input type="number" step="0.1" id="enhanced-rbs" placeholder="110" required>
+                        </div>
+                    </div>
+
+
+                    <h3>Ultrasound Data</h3>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Follicle No. (Left)</label>
+                            <input type="number" id="enhanced-follicle-l" placeholder="5" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>Follicle No. (Right)</label>
+                            <input type="number" id="enhanced-follicle-r" placeholder="6" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Avg. F Size (Left) (mm)</label>
+                            <input type="number" step="0.1" id="enhanced-size-l" placeholder="12" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>Avg. F Size (Right) (mm)</label>
+                            <input type="number" step="0.1" id="enhanced-size-r" placeholder="13" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Endometrium (mm)</label>
+                        <input type="number" step="0.1" id="enhanced-endometrium" placeholder="8.0" required>
+                    </div>
+
+
+                    <h3>Symptoms</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="enhanced-weight-gain"> Excessive Weight Gain</label>
+                        <label><input type="checkbox" id="enhanced-hair-growth"> Excessive Hair Growth</label>
+                        <label><input type="checkbox" id="enhanced-skin-darkening"> Skin Darkening</label>
+                        <label><input type="checkbox" id="enhanced-hair-loss"> Hair Loss</label>
+                        <label><input type="checkbox" id="enhanced-pimples"> Pimples/Acne</label>
+                        <label><input type="checkbox" id="enhanced-fast-food"> Frequent Fast Food</label>
+                    </div>
+
+                    <button type="button" class="submit-btn" onclick="submitEnhancedForm()">Analyze Risk</button>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results" class="page-section">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="images/logo.png" width="80" alt="Logo">
+                    <h1>Your Assessment Results</h1>
+                </div>
+
+                <!-- Print-only header -->
+                <div class="print-header" style="display:none;">
+                    <h1>PCOS Risk Assessment Report</h1>
+                </div>
+
+                <div id="result-header" class="result-header">
+                    <!-- Dynamic Prediction Text -->
+                </div>
+
+                <div id="result-alert" class="alert-box-large">
+                    <!-- Dynamic Alert Message -->
+                </div>
+
+                <hr class="divider">
+
+                <h3>Key Health Ratios</h3>
+                <div class="charts-container">
+                    <div class="chart-box">
+                        <h4>BMI</h4>
+                        <div class="gauge-container" id="gauge-bmi">
+                            <div class="gauge-fill"></div> <!-- Kept for Structure, logic handled by CSS var -->
+                            <div class="gauge-value">--</div>
+                        </div>
+                        <p id="msg-bmi" class="chart-msg"></p>
+                    </div>
+
+                    <div class="chart-box">
+                        <h4>Waist:Hip Ratio</h4>
+                        <div class="gauge-container" id="gauge-whr">
+                            <div class="gauge-fill"></div>
+                            <div class="gauge-value">--</div>
+                        </div>
+                        <p id="msg-whr" class="chart-msg"></p>
+                    </div>
+
+                    <div class="chart-box" id="chart-box-fsh-lh" style="display:none;">
+                        <h4>FSH/LH Ratio</h4>
+                        <div class="gauge-container" id="gauge-fsh-lh">
+                            <div class="gauge-fill"></div>
+                            <div class="gauge-value">--</div>
+                        </div>
+                        <p id="msg-fsh-lh" class="chart-msg"></p>
+                    </div>
+                </div>
+
+                <div id="cycle-section" style="display:none; margin-top: 3rem;">
+                    <h3>Cycle Irregularities</h3>
+                    <p class="section-desc">Irregular cycles are common in PCOS. Here is a comparison of your hormone
+                        levels:</p>
+                    <div class="bar-chart-container">
+                        <div class="bar-row">
+                            <span>FSH</span>
+                            <div class="bar-bg">
+                                <div id="bar-fsh" class="bar-fill"></div>
+                            </div>
+                            <span id="val-fsh"></span>
+                        </div>
+                        <div class="bar-row">
+                            <span>LH</span>
+                            <div class="bar-bg">
+                                <div id="bar-lh" class="bar-fill"></div>
+                            </div>
+                            <span id="val-lh"></span>
+                        </div>
+                    </div>
+                    <div id="msg-cycle" class="alert-box-small" style="margin-top: 1rem;"></div>
+                </div>
+
+                <div id="lifestyle-section" style="display:none; margin-top: 3rem;">
+                    <h3>Lifestyle Factors</h3>
+                    <div class="alert-box-small" style="background-color: #5A4CA4; color: white; margin-bottom: 1rem;">
+                        Lifestyle factors can significantly impact PCOS risk.
+                    </div>
+                    <div class="lifestyle-tips">
+                        <ul id="lifestyle-list">
+                            <!-- Injected via JS -->
+                        </ul>
+                    </div>
+                    <div class="info-box-purple">
+                        <ul>
+                            <li><strong>Weight Gain:</strong> Excess weight can worsen insulin resistance, a key PCOS
+                                factor.</li>
+                            <li><strong>Fast Food Consumption:</strong> Processed foods may contribute to hormone
+                                imbalances.</li>
+                            <li><strong>Lack of Exercise:</strong> Regular physical activity can help regulate hormones.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <h3>Next Steps</h3>
+                <div id="next-steps-alert" class="alert-box-large"></div>
+
+                <!-- Hidden Table for PDF Report Generation -->
+                <div id="user-data-report" style="display:none;">
+                    <h3>Your Data:</h3>
+                    <table class="report-table" id="report-table-body">
+                        <!-- Filled by JS -->
+                    </table>
+                </div>
+
+                <div class="download-section" style="text-align: center; margin-top: 3rem;">
+                    <button class="cta-button" onclick="window.print()">Download Report as PDF</button>
+                    <p class="small-text" style="color: #888; margin-top: 0.5rem; font-size: 0.9rem;">*Use your
+                        browser's "Save as PDF" feature.</p>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="disclaimer-box" style="margin-top: 3rem;">
+                    <h3>Disclaimer</h3>
+                    <p>This tool is for informational purposes only and does not provide a medical diagnosis.</p>
+                    <ul>
+                        <li>Predictions are derived from a specific patient dataset. <a
+                                href="https://www.kaggle.com/datasets/prasoonkottarathil/polycystic-ovary-syndrome-pcos"
+                                target="_blank">Access the dataset here</a></li>
+                        <li>The assessment is not a substitute for a professional medical evaluation.</li>
+                        <li>Always consult a doctor.</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="page-section">
+                <!-- Logo Header -->
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="images/logo.png" width="100">
+                    <h1>PCOS Care</h1>
+                </div>
+
+                <div class="contact-box">
+                    <h3>Need Assistance?</h3>
+                    <p>If you have any questions or encounter issues while using the application, feel free to reach out
+                        to us:</p>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:w1956444@my.westminster.ac.uk">w1956444@my.westminster.ac.uk</a></p>
+                    <p><strong>Phone:</strong> +44 12 345 6789</p>
+                </div>
+
+                <hr class="divider">
+
+                <div class="contact-box">
+                    <h3>Feedback & Suggestions</h3>
+                    <p>We’d love to hear from you! Share your thoughts or suggestions with us via email at:</p>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:w1956444@my.westminster.ac.uk">w1956444@my.westminster.ac.uk</a></p>
+                </div>
+
+                <hr class="divider">
+
+                <div class="contact-box">
+                    <h3>Privacy & Data Handling</h3>
+                    <p>We take your privacy seriously. Any data you provide is only used for this risk assessment and is
+                        not stored or shared with third parties.</p>
+                </div>
+
+                <hr class="divider">
+
+                <h2>Frequently Asked Questions (FAQs)</h2>
+
+                <div class="faq-container">
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <h4>How do I use the PCOS Risk Assessment Tool?</h4>
+                        <div class="faq-answer">Simply fill in your details in the input fields on the Risk Assessment
+                            page and click submit. The results will be displayed on the Results page.</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <h4>Can I get a detailed report of my risk assessment?</h4>
+                        <div class="faq-answer">Yes! You can receive a full report with a summary and prediction, and
+                            you can download it as a PDF for your reference.</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <h4>What happens if I don't fill out all the fields?</h4>
+                        <div class="faq-answer">All fields are required for an accurate risk assessment. Make sure you
+                            complete everything to get the most accurate results.</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <h4>Is my data safe?</h4>
+                        <div class="faq-answer">Yes, privacy is taken seriously. Your data is not saved after the
+                            session, and it is only used for the assessment.</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <h4>Can I use this tool for someone else?</h4>
+                        <div class="faq-answer">This tool is designed for personal use, but you can enter details for
+                            someone else as long as you have their consent.</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <h4>Is this a medical diagnosis?</h4>
+                        <div class="faq-answer">No, this tool is intended for preliminary assessment only and should not
+                            be used as a substitute for professional medical advice.</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <h4>What is the accuracy of the prediction?</h4>
+                        <div class="faq-answer">The accuracy is based on data from 541 patients in Kerala, India, so it
+                            may not be 100% accurate for every person.</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <h4>Does this tool integrate with healthcare systems?</h4>
+                        <div class="faq-answer">No, this is a standalone tool and currently does not link with any
+                            medical records or healthcare systems.</div>
+                    </div>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="disclaimer-box">
+                    <h3>Disclaimer</h3>
+                    <p>This tool is for informational purposes only and does not provide a medical diagnosis.</p>
+                    <ul>
+                        <li>Predictions are derived from a specific patient dataset.</li>
+                        <li>The assessment is not a substitute for a professional medical evaluation.</li>
+                        <li>Results should be interpreted with caution.</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

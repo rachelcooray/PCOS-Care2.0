@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="PCOS Care Logo" class="logo">
+                <h2>PCOS Care</h2>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="simple_assessment.html" class="nav-item">Simple Risk Assessment</a>
+                <a href="enhanced_assessment.html" class="nav-item">Enhanced Risk Assessment</a>
+                <a href="results.html" class="nav-item">Results</a>
+                <a href="contact.html" class="nav-item active">Contact & Help</a>
+            </nav>
+        </aside>
+        
+        <main class="content">
+            <section id="contact" class="page-section">
+                    <!-- Logo Header -->
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <img src="images/logo.png" width="100">
+                        <h1>PCOS Care</h1>
+                    </div>
+
+                    <div class="contact-box">
+                        <h3>Need Assistance?</h3>
+                        <p>If you have any questions or encounter issues while using the application, feel free to reach
+                            out
+                            to us:</p>
+                        <p><strong>Email:</strong> <a
+                                href="mailto:w1956444@my.westminster.ac.uk">w1956444@my.westminster.ac.uk</a></p>
+                        <p><strong>Phone:</strong> +44 12 345 6789</p>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="contact-box">
+                        <h3>Feedback & Suggestions</h3>
+                        <p>We’d love to hear from you! Share your thoughts or suggestions with us via email at:</p>
+                        <p><strong>Email:</strong> <a
+                                href="mailto:w1956444@my.westminster.ac.uk">w1956444@my.westminster.ac.uk</a></p>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="contact-box">
+                        <h3>Privacy & Data Handling</h3>
+                        <p>We take your privacy seriously. Any data you provide is only used for this risk assessment
+                            and is
+                            not stored or shared with third parties.</p>
+                    </div>
+
+                    <hr class="divider">
+
+                    <h2>Frequently Asked Questions (FAQs)</h2>
+
+                    <div class="faq-container">
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <h4>How do I use the PCOS Risk Assessment Tool?</h4>
+                            <div class="faq-answer">Simply fill in your details in the input fields on the Risk
+                                Assessment
+                                page and click submit. The results will be displayed on the Results page.</div>
+                        </div>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <h4>Can I get a detailed report of my risk assessment?</h4>
+                            <div class="faq-answer">Yes! You can receive a full report with a summary and prediction,
+                                and
+                                you can download it as a PDF for your reference.</div>
+                        </div>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <h4>What happens if I don't fill out all the fields?</h4>
+                            <div class="faq-answer">All fields are required for an accurate risk assessment. Make sure
+                                you
+                                complete everything to get the most accurate results.</div>
+                        </div>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <h4>Is my data safe?</h4>
+                            <div class="faq-answer">Yes, privacy is taken seriously. Your data is not saved after the
+                                session, and it is only used for the assessment.</div>
+                        </div>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <h4>Can I use this tool for someone else?</h4>
+                            <div class="faq-answer">This tool is designed for personal use, but you can enter details
+                                for
+                                someone else as long as you have their consent.</div>
+                        </div>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <h4>Is this a medical diagnosis?</h4>
+                            <div class="faq-answer">No, this tool is intended for preliminary assessment only and should
+                                not
+                                be used as a substitute for professional medical advice.</div>
+                        </div>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <h4>What is the accuracy of the prediction?</h4>
+                            <div class="faq-answer">The accuracy is based on data from 541 patients in Kerala, India, so
+                                it
+                                may not be 100% accurate for every person.</div>
+                        </div>
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <h4>Does this tool integrate with healthcare systems?</h4>
+                            <div class="faq-answer">No, this is a standalone tool and currently does not link with any
+                                medical records or healthcare systems.</div>
+                        </div>
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <div class="disclaimer-box">
+                        <h3>Disclaimer</h3>
+                        <p>This tool is for informational purposes only and does not provide a medical diagnosis.</p>
+                        <ul>
+                            <li>Predictions are derived from a specific patient dataset.</li>
+                            <li>The assessment is not a substitute for a professional medical evaluation.</li>
+                            <li>Results should be interpreted with caution.</li>
+                        </ul>
+                    </div>
+                </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

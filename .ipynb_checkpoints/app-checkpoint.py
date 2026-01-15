@@ -24,7 +24,7 @@ except Exception as e:
 
 
 # Features lists
-features_general_public = [
+features_general_public_old = [
     ' Age (yrs)', 'Weight (Kg)', 'Height(Cm) ', 'BMI', 'Blood Group', 'Pulse rate(bpm) ', 
     'RR (breaths/min)', 'Cycle(R/I)', 'Cycle length(days)', 
     'Pregnant(Y/N)', 'No. of aborptions', 'Hip(inch)', 'Waist(inch)', 'Waist:Hip Ratio',  
@@ -33,7 +33,7 @@ features_general_public = [
     'BP _Diastolic (mmHg)'
 ]
 
-features_scan = [
+features_scan_old = [
     ' Age (yrs)', 'Weight (Kg)', 'Height(Cm) ', 'BMI',
        'Blood Group', 'Pulse rate(bpm) ', 'RR (breaths/min)', 'Hb(g/dl)',
        'Cycle(R/I)', 'Cycle length(days)',
@@ -45,6 +45,28 @@ features_scan = [
        'Skin darkening (Y/N)', 'Hair loss(Y/N)', 'Pimples(Y/N)',
        'Fast food (Y/N)', 'Reg.Exercise(Y/N)', 'BP _Systolic (mmHg)',
        'BP _Diastolic (mmHg)', 'Follicle No. (L)', 'Follicle No. (R)',
+       'Avg. F size (L) (mm)', 'Avg. F size (R) (mm)', 'Endometrium (mm)'
+]
+
+features_general_public = [
+    ' Age (yrs)', 'Weight (Kg)', 'Height(Cm) ', 'BMI', 'Blood Group', 'Pulse rate(bpm) ', 
+    'RR (breaths/min)', 'Cycle(R/I)', 'Cycle length(days)',  
+    'Pregnant(Y/N)', 'No. of aborptions', 'Hip(inch)', 'Waist(inch)', 'Waist:Hip Ratio',  
+    'Weight gain(Y/N)', 'hair growth(Y/N)', 'Skin darkening (Y/N)', 'Hair loss(Y/N)', 
+    'Pimples(Y/N)', 'Fast food (Y/N)', 'Reg.Exercise(Y/N)', 'BP _Systolic (mmHg)', 
+    'BP _Diastolic (mmHg)'
+]
+
+features_scan = [
+    ' Age (yrs)', 'Weight (Kg)', 'Height(Cm) ', 'BMI',
+        'Pulse rate(bpm) ', 'Hb(g/dl)',
+       'Cycle(R/I)', 'Cycle length(days)', 
+       'Pregnant(Y/N)', 'No. of aborptions',  'FSH(mIU/mL)', 'LH(mIU/mL)', 'FSH/LH',
+       'Hip(inch)', 'Waist(inch)', 'Waist:Hip Ratio', 
+       'AMH(ng/mL)', 'Vit D3 (ng/mL)', 
+       'RBS(mg/dl)', 'Weight gain(Y/N)', 'hair growth(Y/N)',
+       'Skin darkening (Y/N)', 'Hair loss(Y/N)', 'Pimples(Y/N)',
+       'Fast food (Y/N)', 'Follicle No. (L)', 'Follicle No. (R)',
        'Avg. F size (L) (mm)', 'Avg. F size (R) (mm)', 'Endometrium (mm)'
 ]
 
@@ -61,7 +83,7 @@ categorical_columns_gen = [
     'Hair loss(Y/N)', 'Pimples(Y/N)', 'Fast food (Y/N)', 'Reg.Exercise(Y/N)'
 ]
 
-numerical_columns_scan = [
+numerical_columns_scan_old = [
     ' Age (yrs)', 'Weight (Kg)', 'Height(Cm) ', 'BMI', 'Pulse rate(bpm) ', 
     'RR (breaths/min)', 'Hb(g/dl)', 'Cycle(R/I)', 'Cycle length(days)', 
     'No. of aborptions', 
@@ -72,9 +94,24 @@ numerical_columns_scan = [
     'Follicle No. (R)', 'Avg. F size (L) (mm)', 'Avg. F size (R) (mm)', 'Endometrium (mm)'
 ]
 
-categorical_columns_scan = [
+categorical_columns_scan_old = [
     'Blood Group', 'Pregnant(Y/N)', 'Weight gain(Y/N)', 'hair growth(Y/N)', 'Skin darkening (Y/N)', 
     'Hair loss(Y/N)', 'Pimples(Y/N)', 'Fast food (Y/N)', 'Reg.Exercise(Y/N)'
+]
+
+numerical_columns_scan = [
+    ' Age (yrs)', 'Weight (Kg)', 'Height(Cm) ', 'BMI', 'Pulse rate(bpm) ', 
+     'Hb(g/dl)', 'Cycle(R/I)', 'Cycle length(days)', 
+    'No. of aborptions', 
+     'FSH(mIU/mL)', 'LH(mIU/mL)', 
+    'FSH/LH', 'Hip(inch)', 'Waist(inch)', 'Waist:Hip Ratio', 'TSH (mIU/L)', 
+    'AMH(ng/mL)', 'Vit D3 (ng/mL)',  'RBS(mg/dl)',  'Follicle No. (L)', 
+    'Follicle No. (R)', 'Avg. F size (L) (mm)', 'Avg. F size (R) (mm)', 'Endometrium (mm)'
+]
+
+categorical_columns_scan = [
+     'Pregnant(Y/N)', 'Weight gain(Y/N)', 'hair growth(Y/N)', 'Skin darkening (Y/N)', 
+    'Hair loss(Y/N)', 'Pimples(Y/N)', 'Fast food (Y/N)', 
 ]
 
 # ----- ROUTES -----
