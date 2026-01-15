@@ -117,6 +117,26 @@ categorical_columns_scan = [
     'Hair loss(Y/N)', 'Pimples(Y/N)', 'Fast food (Y/N)', 
 ]
 
+def normalize_categorical(val):
+    """
+    Helper to convert various Yes/No representations into 1 or 0.
+    Handles:
+    - Integers/Floats: 1, 0, 1.0, 0.0
+    - Strings: "Y", "N", "yes", "no", "1", "0" (case-insensitive)
+    - Booleans: True, False
+    """
+    if isinstance(val, (int, float)):
+        return int(val)
+    if isinstance(val, bool):
+        return 1 if val else 0
+    if isinstance(val, str):
+        v = val.strip().lower()
+        if v in ['y', 'yes', '1', 'true']:
+            return 1
+        if v in ['n', 'no', '0', 'false']:
+            return 0
+    return 0
+
 # ----- ROUTES -----
 @app.route('/')
 def serve_index():
@@ -151,7 +171,7 @@ def predict_simple():
         categorical_inputs = []
         for col in categorical_columns_gen:
             if col in data:
-                categorical_inputs.append(data[col])
+                categorical_inputs.append(normalize_categorical(data[col]))
             else:
                 logging.error(f"Missing categorical feature: {col}")
                 return jsonify({"error": f"Missing feature: {col}"}), 400
@@ -205,7 +225,7 @@ def predict_enhanced():
         categorical_inputs = []
         for col in categorical_columns_scan:
             if col in data:
-                categorical_inputs.append(data[col])
+                categorical_inputs.append(normalize_categorical(data[col]))
             else:
                 logging.error(f"Missing categorical feature: {col}")
                 return jsonify({"error": f"Missing feature: {col}"}), 400
