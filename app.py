@@ -17,8 +17,8 @@ logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s
 try:
     with open("best_logistic_reg_simple_smote.pkl", "rb") as model_file:
         loaded_simple = pickle.load(model_file) # Model for Simple risk
-    with open("best_logistic_reg_enhanced_smote.pkl", "rb") as model_file:
-        loaded_enhanced = pickle.load(model_file) # Model for Enhanced risk
+    with open("best_random_forest_enhanced_smote.pkl", "rb") as model_file:
+        loaded_enhanced = pickle.load(model_file) # Model for Enhanced risk (Random Forest)
     logging.info("Models loaded successfully.")
 except Exception as e:
     logging.error(f"Error loading models: {e}")
