@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://127.0.0.1:5001";
+// Use relative path so it works on both Localhost AND Render automatically
+const API_BASE_URL = "";
 
 // --- Navigation Logic (With Smooth Transitions) ---
 function navigateTo(sectionId) {
